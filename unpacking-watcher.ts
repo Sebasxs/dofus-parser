@@ -37,20 +37,20 @@ const addFileToDeleteQueue = async (path: string) => {
 };
 
 const formatMapKeys = (data: string, mapId: string) => {
-   const file = JSON.parse(data);
+   const dataJSON = JSON.parse(data);
    const mapData = {
       mapId: parseInt(mapId),
-      topNeighbourId: file.mapData.topNeighbourId,
-      bottomNeighbourId: file.mapData.bottomNeighbourId,
-      leftNeighbourId: file.mapData.leftNeighbourId,
-      rightNeighbourId: file.mapData.rightNeighbourId,
-      backgroundColor: file.mapData.backgroundColor.value,
-      backgroundElements: file.mapData.backgroundElements,
-      foregroundElements: file.mapData.foregroundElements,
-      sortableElements: file.mapData.sortableElements,
-      animatedElements: file.mapData.animatedElements,
-      boundingBoxes: file.mapData.boundingBoxes,
-      cellsData: file.mapData.cellsData,
+      topNeighbourId: dataJSON.mapData.topNeighbourId,
+      bottomNeighbourId: dataJSON.mapData.bottomNeighbourId,
+      leftNeighbourId: dataJSON.mapData.leftNeighbourId,
+      rightNeighbourId: dataJSON.mapData.rightNeighbourId,
+      backgroundColor: dataJSON.mapData.backgroundColor.value,
+      backgroundElements: dataJSON.mapData.backgroundElements,
+      foregroundElements: dataJSON.mapData.foregroundElements,
+      sortableElements: dataJSON.mapData.sortableElements,
+      animatedElements: dataJSON.mapData.animatedElements,
+      boundingBoxes: dataJSON.mapData.boundingBoxes,
+      cellsData: dataJSON.mapData.cellsData,
    };
    writeFileSync(join(outputDir, mapId + '.json'), JSON.stringify(mapData, null, 3));
    console.log(`Updated map ${mapId}`);
@@ -58,10 +58,10 @@ const formatMapKeys = (data: string, mapId: string) => {
 
 const readJSONFile = async (file: string) => {
    const filename = basename(file);
-   if (filename.startsWith('.')) return;
+   if (!filename.endsWith('.json')) return;
 
    let data = '';
-   const mapId = filename?.replace(/\D/g, '');
+   const mapId = filename.replace(/\D/g, '');
    const fileStream = createReadStream(file, { encoding: 'utf-8' });
    const rl = createInterface({ input: fileStream, crlfDelay: Infinity });
 
