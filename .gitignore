@@ -9,8 +9,11 @@ data_output/*
 languages/*
 !languages/.gitkeep
 
-map_data/*
-!map_data/.gitkeep
+map_data_input/*
+!map_data_input/.gitkeep
+
+map_data_mapped/*
+!map_data_mapped/.gitkeep
 
 map_elements/*
 !map_elements/.gitkeep
