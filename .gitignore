@@ -1,14 +1,5 @@
 node_modules
 
-audio/*
-!audio/.gitkeep
-
-fonts/*
-!fonts/.gitkeep
-
-images/*
-!images/.gitkeep
-
 data_input/*
 !data_input/.gitkeep
 
@@ -18,11 +9,11 @@ data_output/*
 languages/*
 !languages/.gitkeep
 
-map_bundles/*
-!map_bundles/.gitkeep
+map_data_input/*
+!map_data_input/.gitkeep
 
-map_data/*
-!map_data/.gitkeep
+map_data_mapped/*
+!map_data_mapped/.gitkeep
 
 map_elements/*
 !map_elements/.gitkeep

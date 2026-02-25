@@ -8,8 +8,8 @@ import { setTimeout as sleep } from 'timers/promises';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const inputDir = join(__dirname, 'map_bundles');
-const outputDir = join(__dirname, 'map_data');
+const inputDir = join(__dirname, 'map_data_input');
+const outputDir = join(__dirname, 'map_data_mapped');
 
 let isDeletingFiles = false;
 const filesToDelete: string[] = [];
